@@ -28,9 +28,4 @@ public class SavingsAccount extends Account {
         }
         super.deposit(value);
     }
-
-    public void printExtract() {
-        System.out.println("=== Savings Account Extract ===");
-        System.out.println(super.toString());
-    }
 }

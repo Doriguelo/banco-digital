@@ -11,7 +11,7 @@ public abstract class Account implements BankingOperations {
     protected double balance;
     protected Customer accountHolder;
 
-    public Account(int number, Customer accountHolder) {
+    public Account(Customer accountHolder, int number) {
         this.agency = Account.DEFAULT_AGENCY;
         this.number = number;
         this.accountHolder = accountHolder;
@@ -55,5 +55,14 @@ public abstract class Account implements BankingOperations {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    @Override
+    public String toString() {
+        return "Agency: " + agency + " | Account number: " + number + " | Balance: " + balance + " | Account holder: " + accountHolder;
     }
 }

@@ -20,9 +20,4 @@ public class CurrentAccount extends Account{
         super.withDraw(value + rate);
         destiny.deposit(value);
     }
-
-    public void printExtract() {
-        System.out.println("=== Extract Current Account ===");
-        System.out.println(super.toString());
-    }
 }

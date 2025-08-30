@@ -14,13 +14,15 @@ public class Main {
         Bank bank = new BankService();
 
         while (true) {
-            System.out.println("\n=== WELCOME! ===");
+            System.out.println("\n=== Banking System ===");
             System.out.println("1 - Create account");
             System.out.println("2 - Deposit");
             System.out.println("3 - Withdraw");
             System.out.println("4 - Transfer");
             System.out.println("5 - List accounts");
-            System.out.println("6 - Exit");
+            System.out.println("6 - Delete account");
+            System.out.println("7 - Exit");
+            System.out.println("=====================");
             System.out.print("Choose an option: ");
 
             int option = sc.nextInt();
@@ -86,6 +88,17 @@ public class Main {
                     bank.listAccounts();
                 }
                 case 6 -> {
+                    System.out.print("Enter account number to delete: ");
+                    int deleteNumber = sc.nextInt();
+
+                    try {
+                        bank.deleteAccount(deleteNumber);
+                        System.out.println("Account " + deleteNumber + " successfully deleted!");
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                }
+                case 7 -> {
                     System.out.println("Exiting... Thanks for using our bank!");
                     sc.close();
                     return;

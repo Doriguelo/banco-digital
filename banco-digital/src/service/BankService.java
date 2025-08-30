@@ -41,7 +41,10 @@ public class BankService implements Bank{
 
     @Override
     public void deleteAccount(int number) {
-
+        Account removed = accounts.remove(number);
+        if (removed == null) {
+            throw new IllegalArgumentException("Account " + number + " not found!");
+        }
     }
 
     @Override
@@ -49,6 +52,8 @@ public class BankService implements Bank{
         Account account = searchAccount(number);
         if (account != null) {
             account.deposit(value);
+        } else {
+            throw new IllegalArgumentException("Account: " + number + " not found!");
         }
     }
 
@@ -57,6 +62,8 @@ public class BankService implements Bank{
         Account account = searchAccount(number);
         if (account != null) {
             account.withDraw(value);
+        } else {
+        throw new IllegalArgumentException("Account " + number + " not found!");
         }
     }
 
